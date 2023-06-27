@@ -1,0 +1,11 @@
+name: my workflow
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set env
+      run: echo "OPENAI_API_KEY=$(echo $OPENAI_API_KEY)" >> $GITHUB_ENV
+    - name: Test
+      run: echo $OPENAI_API_KEY
